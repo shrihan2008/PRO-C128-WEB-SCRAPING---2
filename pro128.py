@@ -10,7 +10,7 @@ browser=webdriver.Edge("C:\WHITEHAT 26-7-21\msedgedriver.exe")
 
 browser.get(start_url)
 time.sleep(15)
-headers=["Name","Distance","Mass","Radius"]
+headers=["Star","Constellation","Mass","Radius"]
 planet_data=[]
 def scrap():
     for i in range(1,5):
