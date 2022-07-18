@@ -5,7 +5,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import requests 
 from selenium.webdriver.common.by import By
-start_url="https://en.wikipedia.org/wiki/List_of_brightest_stars_and_other_record_stars"
+start_url="https://en.wikipedia.org/wiki/List_of_brown_dwarfs"
 browser=webdriver.Edge("C:\WHITEHAT 26-7-21\msedgedriver.exe")
 
 browser.get(start_url)
@@ -37,7 +37,7 @@ def scrap():
                     except:
                         templist.append("")
             hyperlink_tr_tag=tr_tags[0]
-            templist.append("https://en.wikipedia.org/wiki/List_of_brightest_stars_and_other_record_stars"+ hyperlink_tr_tag.find_all("a", href=True)[0]["href"])
+            templist.append("https://en.wikipedia.org/wiki/List_of_brown_dwarfs"+ hyperlink_tr_tag.find_all("a", href=True)[0]["href"])
             planet_data.append(templist)
         browser.find_element_by_xpath('//*[@id="primary_column"]/footer/div/div/div/nav/span[2]/a').click()
         print(f"page number {i} scrappong done")      
