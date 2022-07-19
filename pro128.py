@@ -49,7 +49,7 @@ def scrapmoreinfo(hyperlink):
         page=requests.get(hyperlink)
         soup=BeautifulSoup(page.content,"html.parser")
         templist=[]
-        for tr_tag in soup.find_all("tr",attrs={"class":"fact_row"}):
+        for tr_tag in soup.find_all("tr",attrs={"class":"headerSort"}):
             td_tags=tr_tag.find_all("td")
             for td_tag in td_tags:
                 try:
@@ -66,16 +66,16 @@ for index,data in enumerate(star_data):
     print(f"Scrapping at hyperlink {index+1} is done")
 
 print(new_stars_data[0:10])
-finalplanetdata=[]
+finalstardata=[]
 for index,data in enumerate(star_data):
     new_star_data_element=new_stars_data[index]
     new_star_data_element=[elem.replace("\n", "") for elem in new_star_data_element]
     new_star_data_element=new_star_data_element[:7]
 
-    finalplanetdata.append(data+new_star_data_element)
-with open("Planets.csv","w") as f:
+    finalstardata.append(data+new_star_data_element)
+with open("Stars.csv","w") as f:
         csvwriter=csv.writer(f)
         csvwriter.writerow(headers)
-        csvwriter.writerows(finalplanetdata)
+        csvwriter.writerows(finalstardata)
  
 
